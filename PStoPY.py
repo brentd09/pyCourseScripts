@@ -36,7 +36,8 @@ response = input('Please enter something: ')
 #PS parameter input: Param([string]$ComputerName)
 import sys
 print(sys.argv)     # this will use the sys module to discover everything from the command line [0] is the command [1] is the first arg/parameter
-print(sys.argv[1])  # Shows the first parameter value after the command name which is [0]
+if len(sys.argv) > 1:
+  print(sys.argv[1])  # Shows the first parameter value after the command name which is [0]
 
 #PS object members: 'This is a string' | Get-Member
 import inspect
@@ -62,6 +63,7 @@ type('This is a string')
 
 #PS TypeCasting: [String]$Number [int]$Val or $Val -as [int]
 int('123')
+# int('string')  # this will fail of course
 str(123)
 chr(90)
 bool(0) # 0 - False, nonzero - True
