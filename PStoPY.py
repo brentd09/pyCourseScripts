@@ -46,6 +46,16 @@ members = inspect.getmembers(string1)   # This produces a list of object members
 for member in members:
   print(member)
 
+# PS collectons: @() array, @{} hashtable, @' '@ or @" "@ here strings
+#  List: is a collection which is ordered and changeable. Allows duplicate members.
+#  Tuple: is a collection which is ordered and unchangeable. Allows duplicate members.
+#  Set: is a collection which is unordered and unindexed. No duplicate members.
+#  Dictionary: is a collection which is ordered* and changeable. No duplicate members.
+listobj = [1,2,3,4]  # Mutable
+tupleobj = (1,2,3,4)  # Immutable
+setobj = {1,2,3,4} # Mutable
+dictionaryobj = {'key1':1,'key2':2,'key3':3,'key4':4} # Mutable - this is also called a hashtable
+
 #PS Object[]:  $ObjArray = @(1,2,3,4)
 objarray = (1,2,3,4)
 
@@ -76,4 +86,5 @@ patn = re.compile("^[^f]")  # using REGEX is the best way to check for matches i
 items = filter(lambda x: re.match(patn, x),"The ducks fly backward in fall".split(' ') )
 for item in items:
   print(item)
+
 
