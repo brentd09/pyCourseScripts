@@ -6,5 +6,6 @@ TempData = {
   'Temp' : DataBom[8:10],
   'Pres' : DataBom[10:14]
 }
-
-print(TempData)
+import os
+os.system('cls')
+print(TempData['Year'])
