@@ -1,6 +1,6 @@
-def new_func():
-    a = b = 4
+def new_func(c, d):
+  a = b = 4
+  return c + d
 
-new_func()
-
-print()
+  
+print (new_func(5, 4))
