@@ -18,12 +18,13 @@ def check_for_win(game_board):
     return False      
 
 
-import os
-this_move = 'X'
+import os,random
+random_val = random.randint(0,100)
+this_move = 'X' if random_val % 2 == 0 else 'O'
 board = ['1','2','3','4','5','6','7','8','9']
-setboard = set(board.copy())
+initial_board = set(board.copy())
 won = False
-while set(board).intersection(setboard):
+while set(board).intersection(initial_board):
     show_board(board)
     prmpt = 'Pick a number for your move for ' + this_move + ': '
     choice = '0'
