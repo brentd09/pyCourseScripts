@@ -17,6 +17,10 @@ def check_for_win(game_board):
             return True        
     return False      
 
+def mini_max_choice(game_board):
+    copy_board = game_board.copy()
+    positions_available = [int(x) - 1 for x in copy_board if x not in ['X','O']]
+
 
 import os,random
 random_val = random.randint(0,100)
@@ -26,16 +30,19 @@ initial_board = set(board.copy())
 won = False
 while set(board).intersection(initial_board):
     show_board(board)
-    prmpt = 'Pick a number for your move for ' + this_move + ': '
-    choice = '0'
-    while choice not in board:
-      choice = input(prmpt)
-    board[int(choice)-1 ] = this_move
-    won = check_for_win(board)
-    if not won:
-        this_move = 'O' if this_move == 'X' else 'X'
+    if this_move == 'X':
+        prmpt = 'Pick a number for your move for ' + this_move + ': '
+        choice = '0'
+        while choice not in board:
+          choice = input(prmpt)
+        board[int(choice)-1 ] = this_move
+        won = check_for_win(board)
+        if not won:
+            this_move = 'O' if this_move == 'X' else 'X'
+        else:
+            break
     else:
-        break
+        mini_max_choice(board)      
 show_board(board)
 game_result = ('The winner is: ' + this_move) if won else 'The game is a draw'
 print(game_result)
